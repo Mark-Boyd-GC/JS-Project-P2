@@ -41,9 +41,7 @@ function Routes({ user, setUser }) {
       <Route
         exact
         path='/reviews'
-        render={(props) =>
-          user ? <Reviews {...props} user={user} /> : <Redirect to='/' />
-        }
+        render={(renderProps) => <Reviews {...renderProps} user={user} />}
       />
       <Route
         exact

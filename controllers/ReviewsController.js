@@ -22,20 +22,15 @@ exports.recommendations = async (req, res) => {
 
 exports.index = async (req, res) => {
   try {
-    const user = await getUser(req);
-
-    const reviews = await Review.find({ user: user._id })
+    const reviews = await Review.find()
       .populate('user')
       .sort({ updatedAt: 'desc' });
 
     res.status(200).json(reviews);
   } catch (error) {
-    console.error(error);
-    res.status(400).json({
-      status: 'failed',
-      message: `There was an error in retrieving the reviews.`,
-      error,
-    });
+    res
+      .status(400)
+      .json({ message: 'There was an error fetching the reviews', error });
   }
 };
 
