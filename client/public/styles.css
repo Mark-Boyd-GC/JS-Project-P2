@@ -17,6 +17,7 @@ label {
 .form-control {
   background-color: #1b2838 !important;
   color: #fff !important;
+  border-color: #fff;
 }
 
 .form-control::selection {
@@ -102,8 +103,22 @@ header:not(.home-cta),
   margin-top: 30px;
 }
 
-.btn-dark,
-.btn-primary,
-.show-container {
+.btn-primary {
   background-color: #1b2838;
+  border-color: #fff;
+}
+
+.btn-primary:hover {
+  color: #1b2838;
+  background-color: #fff;
+  border-color: #1b2838;
+}
+
+.btn-edit {
+  color: #5cb85c !important;
+}
+
+.btn-delete {
+  margin-left: 20px;
+  color: #d9534f !important;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -37,6 +37,14 @@ const Index = function ({ user }) {
     }
   };
 
+  function thumbRating(recommendation) {
+    if (recommendation === 'Recommended') {
+      return <i className='fa fa-thumbs-up'></i>;
+    } else {
+      return <i className='fa fa-thumbs-down'></i>;
+    }
+  }
+
   return (
     <Container className='my-5'>
       <header>
@@ -60,10 +68,14 @@ const Index = function ({ user }) {
                   Time Played: {review.timePlayed}
                   {review.timePlayed > 1 ? ' hours' : ' hour'}
                 </p>
-                <p className='card-text'>{review.recommendation}</p>
+
+                <p className='card-text'>
+                  {thumbRating(review.recommendation)}
+                  {' ' + review.recommendation}
+                </p>
               </div>
 
-              {user ? (
+              {user._id === review.user._id ? (
                 <div className='card-footer'>
                   <Link
                     to={{
@@ -72,13 +84,24 @@ const Index = function ({ user }) {
                         id: review._id,
                       },
                     }}
+                    className='btn-edit'
                   >
-                    <i className='fa fa-edit'></i>
+                    Edit
                   </Link>
-
-                  <button type='button' onClick={() => deleteReview(review)}>
-                    <i className='fa fa-trash'></i>
-                  </button>
+                  <Link
+                    to=''
+                    className='btn-delete'
+                    onClick={() => {
+                      let result = window.confirm(
+                        'Are you sure you want to delete this review?'
+                      );
+                      if (result) {
+                        deleteReview(review);
+                      } else return;
+                    }}
+                  >
+                    Delete
+                  </Link>
                 </div>
               ) : null}
             </div>
