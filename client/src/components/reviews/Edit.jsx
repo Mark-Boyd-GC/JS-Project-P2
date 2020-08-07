@@ -23,7 +23,7 @@ const Edit = function (props) {
       const reviewResp = await Axios.get(`/api/reviews/${id}`);
       if (reviewResp.status === 200) setInputs(reviewResp.data);
     })();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

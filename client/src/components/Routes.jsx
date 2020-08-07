@@ -10,7 +10,6 @@ import Logout from './sessions/Logout';
 import Reviews from './reviews/Index';
 import NewReview from './reviews/New';
 import EditReview from './reviews/Edit';
-import { Fragment } from 'react';
 
 function Routes({ user, setUser }) {
   return (
