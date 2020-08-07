@@ -51,7 +51,7 @@ const Index = function ({ user }) {
             <div key={i} className='card my-3'>
               <div className='card-header'>
                 <h5 className='card-title'>{review.title}</h5>
-                <small>{user.fullname}</small>
+                <small>{review.user.fullname}</small>
               </div>
 
               <div className='card-body'>
