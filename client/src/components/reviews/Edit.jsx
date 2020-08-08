@@ -86,7 +86,7 @@ const Edit = function (props) {
               as='textarea'
               name='content'
               onChange={handleInputChange}
-              value={inputs.date}
+              value={inputs.content}
             />
           </Form.Group>
 
