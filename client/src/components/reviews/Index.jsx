@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+var moment = require('moment');
 
 const Index = function ({ user }) {
   const [reviews, setReviews] = useState([]);
@@ -59,6 +60,9 @@ const Index = function ({ user }) {
             <div key={i} className='card my-3'>
               <div className='card-header'>
                 <h5 className='card-title'>{review.title}</h5>
+                <small className='timestamp'>
+                  {moment(review.updatedAt).format('LLL')}
+                </small>
                 <small>{review.user.fullname}</small>
               </div>
 
@@ -89,7 +93,7 @@ const Index = function ({ user }) {
                     Edit
                   </Link>
                   <Link
-                    to=''
+                    to='/reviews'
                     className='btn-delete'
                     onClick={() => {
                       let result = window.confirm(

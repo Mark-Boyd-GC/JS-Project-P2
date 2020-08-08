@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const recommendation = [`Recommended`, `Not Recommended`];
+const recommendation = ['Recommended', 'Not Recommended'];
 
 const ReviewSchema = new mongoose.Schema(
   {
@@ -25,7 +25,7 @@ const ReviewSchema = new mongoose.Schema(
     recommendation: {
       type: String,
       enum: recommendation,
-      default: `Recommended`,
+      default: 'Recommended',
       required: true,
     },
   },

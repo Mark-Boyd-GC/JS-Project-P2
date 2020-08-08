@@ -26,7 +26,7 @@ const Logout = ({ setUser }) => {
         });
       }
     })();
-  }, [setUser]);
+  }, []);
 
   if (redirect) return <Redirect to='/' />;
   return null;

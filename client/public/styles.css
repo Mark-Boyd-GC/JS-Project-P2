@@ -122,3 +122,7 @@ header:not(.home-cta),
   margin-left: 20px;
   color: #d9534f !important;
 }
+
+.timestamp {
+  float: right;
+}
